@@ -81,11 +81,11 @@ EOL
 fi
 echo "Make NanoHatOLED autostart."
 
-if [ ! -f BakeBit/install.sh ]; then
+if [ ! -f https://github.com/friendlyarm/BakeBit/tree/e563636db54d50769d7feab2ecac8d94f9566a78/install.sh ]; then
     git submodule init
     git submodule update --remote
 fi
 
-cd BakeBit/
+cd https://github.com/friendlyarm/BakeBit/tree/e563636db54d50769d7feab2ecac8d94f9566a78/
 sudo ./install-compat.sh
 
