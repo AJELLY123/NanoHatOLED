@@ -20,7 +20,7 @@ echo ""
 echo "Checking Internet Connectivity..."
 echo "================================="
 wget -q --tries=2 --timeout=100 http://www.baidu.com -O /dev/null
-if [ $? -eq 0 ];then
+if [ $? -eq 0 ]; then
     echo "Connected"
 else
     echo "Unable to Connect, try again !!!"
@@ -54,7 +54,7 @@ if [ ! -f /usr/bin/python3 ]; then
     exit 1
 fi
 
-PY3_INTERP=`readlink /usr/bin/python3`
+PY3_INTERP=$(readlink /usr/bin/python3)
 RET=$?
 if [ $? -ne 0 ]; then
     echo "No executable python3, exiting."
@@ -81,11 +81,10 @@ EOL
 fi
 echo "Make NanoHatOLED autostart."
 
-if [ ! -f https://github.com/friendlyarm/BakeBit/tree/e563636db54d50769d7feab2ecac8d94f9566a78/install.sh ]; then
+if [ ! -f BakeBit/install.sh ]; then
     git submodule init
     git submodule update --remote
 fi
 
-cd https://github.com/friendlyarm/BakeBit/tree/e563636db54d50769d7feab2ecac8d94f9566a78/
+cd BakeBit
 sudo ./install-compat.sh
-
